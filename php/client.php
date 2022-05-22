@@ -11,7 +11,7 @@ echo "Socket created!" . PHP_EOL;
 $result = socket_connect($socket, $host, $port) or die("Unable to connect to host");
 echo "Connected" . PHP_EOL;
 
-$message = "Vibes";
+$message = readline(":");
 
 socket_write($socket, $message, strlen($message)) or die("Could not send message");
 echo ":" . $message . PHP_EOL;
