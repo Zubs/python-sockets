@@ -16,4 +16,4 @@ def processInput():
     serverSocket.sendto(data, clientAddress)
 
 while True:
-    processInput();
+    processInput()
