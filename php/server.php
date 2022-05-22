@@ -17,13 +17,14 @@ echo "Socket listening on port " . $port . PHP_EOL;
 $spawn = socket_accept($socket) or die("Unable to receive requests");
 echo "Accepted request from " . $socket . PHP_EOL;
 
-$input = socket_read($spawn, 1342177) or die("Unable to read input");
+$input = socket_read($spawn, 1024) or die("Unable to read input");
 echo "> " . $input . PHP_EOL;
 
-$output = strrev($input);
+$output = strtoupper($input);
 echo ": " . $output . PHP_EOL;
 
 socket_write($spawn, $output, strlen($output)) or die("Could not write output");
 
 socket_close($spawn);
 socket_close($socket);
+echo "Socket and connection closed" . PHP_EOL;
